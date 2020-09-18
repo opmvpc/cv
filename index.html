@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV</title>
+
+    <!-- Scripts -->
+    <script src="/dist/manifest.js"></script>
+    <script src="/dist/vendor.js" defer></script>
+    <script src="/dist/app.js" defer></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="dist/style.css" />
+  </head>
+  <body x-data class="prose">
+    <header>
+      <img src="/dist/img/avatar.jpg" alt="avatar" />
+      <ul>
+        <li x-text="cv.informations.nom"></li>
+        <li x-text="cv.informations.age"></li>
+        <li x-text="cv.informations.ville"></li>
+        <li>
+          <a
+            x-text="cv.informations.telephone"
+            :href="'tel:' + cv.informations.telephone"
+          ></a>
+        </li>
+        <li>
+          <a
+            :href="'mailto:' + cv.informations.email"
+            x-text="cv.informations.email"
+          ></a>
+        </li>
+        <li>
+          <a x-text="cv.informations.site" :href="cv.informations.site"></a>
+        </li>
+      </ul>
+    </header>
+
+    <h1>Lead Developer</h1>
+
+    <section id="competences">
+      <h3>Compétences</h3>
+      <ul>
+        <template x-for="(competence, index) in cv.competences" :key="index">
+          <li x-text="competence.text"></li>
+        </template>
+      </ul>
+    </section>
+
+    <section id="travail">
+      <h3>Expérience professionnelle</h3>
+      <ul>
+        <template x-for="(travail, index) in cv.emplois" :key="index">
+          <li>
+            <div x-text="travail.annees"></div>
+            <div>
+              <div x-text="travail.nom"></div>
+              <div x-text="travail.employeur"></div>
+            </div>
+          </li>
+        </template>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h3>Formation</h3>
+      <ul>
+        <template x-for="(formation, index) in cv.formations" :key="index">
+          <li>
+            <div x-text="formation.annees"></div>
+            <div>
+              <div x-text="formation.nom"></div>
+              <div x-text="formation.etablissement"></div>
+            </div>
+          </li>
+        </template>
+      </ul>
+    </section>
+
+    <section id="interets">
+      <h3>Intérets</h3>
+      <ul>
+        <template x-for="(interet, index) in cv.interets" :key="index">
+          <li x-text="interet.text"></li>
+        </template>
+      </ul>
+    </section>
+  </body>
+</html>
