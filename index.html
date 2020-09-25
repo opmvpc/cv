@@ -13,19 +13,19 @@
     <!-- Styles -->
     <link rel="stylesheet" href="dist/style.css" />
   </head>
-  <body x-data class="">
+  <body x-data class="antialiased">
     <header
-      class="w-full grid grid-flow-col grid-cols-5 gap-y-10 gap-x-16 text-gray-900"
+      class="w-full grid grid-flow-col grid-cols-12 gap-y-10 gap-x-16 text-sm text-gray-900"
     >
       <img
-        class="rounded-full border-4 border-black"
+        class="col-span-2 rounded-full border-4 border-black"
         src="/dist/img/avatar.jpg"
         alt="avatar"
       />
-      <div class="col-span-2 flex flex-col justify-between">
+      <div class="col-span-4 flex flex-col justify-between">
         <div class="inline-flex items-center">
           <svg
-            class="w-6 h-6 mr-4 text-gray-600"
+            class="w-4 h-4 mr-4 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -42,7 +42,7 @@
         </div>
         <div class="inline-flex items-center">
           <svg
-            class="w-6 h-6 mr-4 text-gray-600"
+            class="w-4 h-4 mr-4 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -59,7 +59,7 @@
         </div>
         <div class="inline-flex items-center">
           <svg
-            class="w-6 h-6 mr-4 text-gray-600"
+            class="w-4 h-4 mr-4 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -80,11 +80,9 @@
           </svg>
           <div x-text="cv.informations.ville"></div>
         </div>
-      </div>
-      <div class="col-span-2 flex flex-col justify-between">
         <div class="inline-flex items-center">
           <svg
-            class="w-6 h-6 mr-4 text-gray-600"
+            class="w-4 h-4 mr-4 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -102,9 +100,11 @@
             :href="'tel:' + cv.informations.telephone"
           ></a>
         </div>
+      </div>
+      <div class="col-span-6 flex flex-col justify-between">
         <div class="inline-flex items-center">
           <svg
-            class="w-6 h-6 mr-4 text-gray-600"
+            class="w-4 h-4 mr-4 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -124,7 +124,7 @@
         </div>
         <div class="inline-flex items-center">
           <svg
-            class="w-6 h-6 mr-4 text-gray-600"
+            class="w-4 h-4 mr-4 text-gray-600"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -139,19 +139,24 @@
           </svg>
           <a x-text="cv.informations.site" :href="cv.informations.site"></a>
         </div>
+        <div class="inline-flex items-center">
+          <svg
+            role="img"
+            class="w-4 h-4 mr-4 text-gray-600 fill-current"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>GitHub icon</title>
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+            />
+          </svg>
+          <a x-text="cv.informations.github" :href="cv.informations.github"></a>
+        </div>
       </div>
     </header>
 
     <h1 x-text="cv.jobTitle"></h1>
-
-    <section id="competences">
-      <h3 class="">Compétences</h3>
-      <ul class="grid grid-cols-2 gap-x-16 gap-y-5 text-gray-700 text-sm">
-        <template x-for="(competence, index) in cv.competences" :key="index">
-          <li x-text="competence.text"></li>
-        </template>
-      </ul>
-    </section>
 
     <div class="">
       <section id="travail">
@@ -199,7 +204,7 @@
                       x-for="(tache, index) in travail.taches"
                       :key="index"
                     >
-                      <li class="text-sm" x-text="tache"></li>
+                      <li class="ml-5 text-sm taches" x-text="tache"></li>
                     </template>
                   </ul>
                 </div>
@@ -211,26 +216,111 @@
 
       <section id="competences">
         <h3 class="">Autres projets</h3>
-        <ul class="grid grid-cols-2 gap-x-16 gap-y-5 text-gray-700 text-sm">
+        <ul class="grid grid-cols-2 gap-x-10 gap-y-5">
           <template x-for="(projet, index) in cv.projets" :key="index">
-            <li x-text="projet"></li>
+            <li class="flex ">
+              <div class="w-1/6 text-right pr-10" x-text="projet.annee"></div>
+              <div class="w-5/6">
+                <div class="mb-0">
+                  <div class="text-xl mb-0" x-text="projet.nom"></div>
+                  <div class="inline-flex items-center" x-show="projet.url">
+                    <svg
+                      class="w-4 h-4 text-gray-600 mr-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                      ></path>
+                    </svg>
+                    <div
+                      class="text-xs text-gray-900"
+                      x-text="projet.url"
+                    ></div>
+                  </div>
+                </div>
+                <div class="mt-1 text-gray-700 mb-2">
+                  <div class="text-sm mb-2" x-text="projet.description"></div>
+                  <div class="flex items-center" x-show="projet.technologies">
+                    <svg
+                      class="w-4 h-4 text-gray-600 mr-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      ></path>
+                    </svg>
+                    <div
+                      class="text-xs text-gray-900"
+                      x-text="projet.technologies"
+                    ></div>
+                  </div>
+                  <div class="flex items-center" x-show="projet.fonction">
+                    <svg
+                      class="w-4 h-4 text-gray-600 mr-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                      ></path>
+                    </svg>
+                    <div
+                      class="text-xs text-gray-900"
+                      x-text="projet.fonction"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </li>
           </template>
         </ul>
       </section>
 
-      <div class="grid grid-cols-3 gap-x-16 gap-y-5">
+      <section id="competences">
+        <h3 class="">Compétences</h3>
+        <ul class="grid grid-cols-2 gap-x-16 gap-y-5 text-gray-700 text-sm">
+          <template x-for="(competence, index) in cv.competences" :key="index">
+            <li class="ml-8" x-text="competence.text"></li>
+          </template>
+        </ul>
+      </section>
+
+      <div class="">
         <section class="col-span-2" id="education">
           <h3>Formation</h3>
           <ul>
             <template x-for="(formation, index) in cv.formations" :key="index">
               <li class="flex ">
                 <div
-                  class="w-1/3 text-right pr-6"
+                  class="w-1/5 text-right pr-6"
                   x-text="formation.annees"
                 ></div>
-                <div class="w-2/3">
+                <div class="w-5/6">
                   <div class="mb-0">
-                    <div class="mb-1" x-text="formation.nom"></div>
+                    <div class="text-lg mb-1" x-text="formation.nom"></div>
                     <div
                       class="inline-flex items-center"
                       x-show="formation.etablissement"
@@ -260,6 +350,104 @@
                         x-text="formation.etablissement"
                       ></div>
                     </div>
+
+                    <ul class="ml-5 my-2">
+                      <template
+                        x-for="(projet, index) in formation.projets"
+                        :key="index"
+                      >
+                        <li class="flex flex-col">
+                          <div class="mb-0">
+                            <div class="flex">
+                              <div class="mb-0" x-text="projet.nom"></div>
+                              <div
+                                class="inline-flex items-center"
+                                x-show="projet.url"
+                              >
+                                <svg
+                                  class="w-4 h-4 text-gray-600 mr-1 ml-5"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                                  ></path>
+                                </svg>
+                                <div
+                                  class="text-xs text-gray-900"
+                                  x-text="projet.url"
+                                ></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="mt-1 text-gray-700 mb-2">
+                            <div
+                              class="text-sm mb-0"
+                              x-text="projet.description"
+                            ></div>
+                            <div class="flex">
+                              <div
+                                class="flex items-center"
+                                x-show="projet.technologies"
+                              >
+                                <svg
+                                  class="w-4 h-4 text-gray-600 mr-1"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                  ></path>
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                  ></path>
+                                </svg>
+                                <div
+                                  class="text-xs text-gray-900"
+                                  x-text="projet.technologies"
+                                ></div>
+                              </div>
+                              <div
+                                class="flex items-center"
+                                x-show="projet.fonction"
+                              >
+                                <svg
+                                  class="w-4 h-4 text-gray-600 mr-1 ml-5"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                  ></path>
+                                </svg>
+                                <div
+                                  class="text-xs text-gray-900"
+                                  x-text="projet.fonction"
+                                ></div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      </template>
+                    </ul>
                   </div>
                 </div>
               </li>
@@ -269,9 +457,9 @@
 
         <section id="interets">
           <h3>Intérets</h3>
-          <ul>
+          <ul class="grid grid-cols-3 gap-y-2 gap-x-16 ml-3">
             <template x-for="(interet, index) in cv.interets" :key="index">
-              <li class="text-gray-700 text-sm" x-text="interet.text"></li>
+              <li class="ml-5 text-gray-700 text-sm" x-text="interet.text"></li>
             </template>
           </ul>
         </section>

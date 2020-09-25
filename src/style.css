@@ -6,9 +6,13 @@
 
 /* @import url("https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100;200;300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
 
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
   /* font-family: "Lora", serif; */
-  @apply leading-8 font-bold;
+  @apply leading-6 font-bold;
 }
 
 h1,
@@ -19,15 +23,15 @@ h3 {
 }
 
 h1 {
-  @apply text-5xl mb-8 mt-8;
+  @apply text-3xl mb-8 mt-10;
 }
 
 h3 {
-  @apply text-3xl mb-6 mt-4;
+  @apply text-2xl mb-6;
 }
 
 section {
-  @apply mb-10;
+  @apply mb-6;
 }
 
 /* section > ul > li {
@@ -43,7 +47,12 @@ section {
     page-break-after: avoid;
   }
   pre,
-  blockquote {
+  blockquote,
+  li.taches {
     page-break-inside: avoid;
   }
+}
+
+li {
+  @apply list-disc;
 }
